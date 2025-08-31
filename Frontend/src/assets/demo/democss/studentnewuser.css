@@ -1,0 +1,327 @@
+/*
+ * =================================================================================
+ * MODERN PERSONAL INFORMATION FORM - ENHANCED STYLES WITH DROPDOWN
+ * =================================================================================
+ */
+
+/* ---------------------------------------------------------------------------------
+ * 0. ROOT COLOR VARIABLES
+ * --------------------------------------------------------------------------------- */
+:root {
+    /* Primary Colors */
+    --color-primary: #4A55E1;
+    --color-primary-dark: #3A44C1;
+    --color-primary-light: rgba(74,85,225,0.1);
+
+    /* Success Colors */
+    --color-success: #10B981;
+    --color-success-bg: rgba(16,185,129,0.05);
+    --color-success-gradient: rgba(16,185,129,0.1);
+
+    /* Error Colors */
+    --color-error: #DC2626;
+    --color-error-bg: rgba(220,38,38,0.05);
+
+    /* Neutral / Text Colors */
+    --color-text-dark: #1E293B;
+    --color-text-medium: #374151;
+    --color-text-light: #94A3B8;
+
+    /* Background Colors */
+    --color-bg-surface: rgba(255,255,255,0.95);
+    --color-bg-gradient-start: rgba(255,255,255,0.8);
+    --color-bg-gradient-end: rgba(248,250,252,0.6);
+
+    /* Border Colors */
+    --color-border-light: rgba(226,232,240,0.5);
+    --color-border-card: rgba(255,255,255,0.2);
+    --color-border-card-hover: rgba(255,255,255,0.1);
+
+    /* Scrollbar Colors */
+    --color-scrollbar-track: #f1f5f9;
+    --color-scrollbar-thumb: #cbd5e1;
+    --color-scrollbar-thumb-hover: #94a3b8;
+}
+
+/* ---------------------------------------------------------------------------------
+ * 1. CUSTOM ANIMATIONS & KEYFRAMES
+ * --------------------------------------------------------------------------------- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes successSlideIn { from { opacity: 0; transform: translateY(-10px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+/* ---------------------------------------------------------------------------------
+ * 2. CONTAINER & LAYOUT ENHANCEMENTS
+ * --------------------------------------------------------------------------------- */
+.max-width-container {
+    max-width: 56rem; 
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.form-card {
+    background: var(--color-bg-surface);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border-card);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08), 0 0 0 1 rgba(255,255,255,0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-card:hover {
+    box-shadow: 0 32px 64px -12px rgba(0,0,0,0.12), 0 0 0 1 var(--color-border-card-hover);
+    transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------------------------------
+ * 3. SECTION STYLING
+ * --------------------------------------------------------------------------------- */
+.form-section {
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--color-bg-gradient-start), var(--color-bg-gradient-end));
+    border: 1px solid var(--color-border-light);
+    animation: slideInFromLeft 0.6s ease-out forwards;
+    transition: all 0.3s ease;
+}
+
+.form-section:hover {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,250,252,0.8));
+    border-color: rgba(74,85,225,0.2);
+    transform: translateY(-1px);
+}
+
+.form-section:nth-child(1) { animation-delay: 0.1s; }
+.form-section:nth-child(2) { animation-delay: 0.2s; }
+.form-section:nth-child(3) { animation-delay: 0.3s; }
+.form-section:nth-child(4) { animation-delay: 0.4s; }
+.form-section:nth-child(5) { animation-delay: 0.5s; }
+
+.section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-title::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-dark));
+    border-radius: 2px;
+}
+
+/* ---------------------------------------------------------------------------------
+ * 4. INPUT & FORM ELEMENT ENHANCEMENTS
+ * --------------------------------------------------------------------------------- */
+.input-group { position: relative; }
+
+.input-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-medium);
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--color-border-light);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.8);
+    color: var(--color-text-dark);
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 0 0 4px var(--color-primary-light), 0 8px 16px -4px var(--color-primary-light);
+    transform: translateY(-1px);
+}
+
+.form-input::placeholder { color: var(--color-text-light); transition: opacity 0.3s ease; }
+
+.date-input::-webkit-calendar-picker-indicator {
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%234A55E1'%3e%3cpath fill-rule='evenodd' d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z' clip-rule='evenodd'/%3e%3c/svg%3e") no-repeat center;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------------------
+ * 5. FILE UPLOAD & VERIFICATION STYLING
+ * --------------------------------------------------------------------------------- */
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    border: 2px dashed var(--color-border-light);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.8);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.file-upload-label:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+}
+
+.file-upload-label.error {
+    border-style: solid;
+    border-color: var(--color-error);
+    background: var(--color-error-bg);
+}
+.file-upload-label.success {
+    border-style: solid;
+    border-color: var(--color-success);
+    background: var(--color-success-bg);
+}
+
+.verify-button {
+    padding: 0.875rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.verify-button:hover:not(:disabled) {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+}
+.verify-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.verification-status {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    min-height: 1.25rem;
+}
+.verification-status.verifying { color: var(--color-primary-dark); }
+.verification-status.verified { color: var(--color-success); }
+
+
+/* ---------------------------------------------------------------------------------
+ * 6. BUTTON ENHANCEMENTS
+ * --------------------------------------------------------------------------------- */
+.submit-button {
+    width: 100%;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 10px 25px -5px rgba(74,85,225,0.4), 0 4px 6px -2px rgba(74,85,225,0.1);
+}
+
+.submit-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.submit-button:hover { background: linear-gradient(135deg, var(--color-primary-dark) 0%, #2d3bb8 100%); transform: translateY(-2px); }
+.submit-button:hover::before { left: 100%; }
+
+.submit-button:active { transform: translateY(0); transition: transform 0.1s ease; }
+.submit-button:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* ---------------------------------------------------------------------------------
+ * 7. ERROR & SUCCESS MESSAGES
+ * --------------------------------------------------------------------------------- */
+.error-message {
+    font-size: 0.875rem;
+    color: var(--color-error);
+    margin-top: 0.25rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    min-height: 1.25rem;
+}
+.error-message.show { opacity: 1; transform: translateY(0); }
+
+.success-message {
+    background: linear-gradient(135deg, var(--color-success-gradient), var(--color-success-gradient));
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    animation: successSlideIn 0.5s ease-out;
+}
+
+/* ---------------------------------------------------------------------------------
+ * 8. FORM VALIDATION STATES
+ * --------------------------------------------------------------------------------- */
+.form-input.error { border-color: var(--color-error); background: var(--color-error-bg); animation: shake 0.5s ease-in-out; }
+.form-input.success { border-color: var(--color-success); background: var(--color-success-bg); }
+.form-input[readonly] {
+    border-color: var(--color-border-light);
+    box-shadow: none;
+    transform: none;
+}
+
+/* ---------------------------------------------------------------------------------
+ * 9. RESPONSIVE DESIGN ENHANCEMENTS
+ * --------------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+    .form-card { padding: 1.5rem; border-radius: 20px; margin: 1rem; }
+    .form-section { padding: 1rem; }
+    .section-title { font-size: 1rem; }
+}
+
+/* ---------------------------------------------------------------------------------
+ * 10. MICRO-INTERACTIONS & POLISH
+ * --------------------------------------------------------------------------------- */
+.input-group:hover .input-label { color: var(--color-primary); }
+.form-input:valid:not(:focus):not(:placeholder-shown) { border-color: var(--color-success); background: rgba(16,185,129,0.02); }
+
+/* Custom scrollbar for textarea */
+.form-input::-webkit-scrollbar { width: 6px; }
+.form-input::-webkit-scrollbar-track { background: var(--color-scrollbar-track); border-radius: 3px; }
+.form-input::-webkit-scrollbar-thumb { background: var(--color-scrollbar-thumb); border-radius: 3px; }
+.form-input::-webkit-scrollbar-thumb:hover { background: var(--color-scrollbar-thumb-hover); }
