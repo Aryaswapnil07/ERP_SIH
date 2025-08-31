@@ -1,0 +1,353 @@
+/* === Root Colors === */
+:root {
+  /* Base */
+  --color-black: 0, 0, 0;
+  --color-white: 255, 255, 255;
+
+  /* Background */
+  --bg-gradient-start: #667eea;
+  --bg-gradient-end: #764ba2;
+
+  /* Overlay */
+  --overlay-light-start: 255, 255, 255;
+  --overlay-light-end: 248, 250, 252;
+
+  /* Neutral */
+  --neutral-dark: #374151;
+
+  /* Premium Gradients */
+  --blue-start: 99, 102, 241;
+  --blue-mid: 79, 172, 254;
+
+  --yellow-start: 245, 158, 11;
+  --yellow-mid: 251, 191, 36;
+
+  --green-start: 16, 185, 129;
+  --green-mid: 52, 211, 153;
+
+  --purple-start: 139, 92, 246;
+  --purple-mid: 196, 181, 253;
+
+  --red-start: 239, 68, 68;
+  --red-mid: 252, 165, 165;
+
+  /* Custom Combos */
+  --custom1-start: 251, 146, 60;
+  --custom1-mid: 236, 72, 153;
+
+  --custom2-start: 6, 182, 212;
+  --custom2-mid: 59, 130, 246;
+
+  --custom3-start: 16, 185, 129;
+  --custom3-mid: 20, 184, 166;
+
+  --custom4-start: 124, 58, 237;
+  --custom4-mid: 79, 70, 229;
+
+  --custom5-start: 236, 72, 153;
+  --custom5-mid: 251, 191, 36;
+
+  --custom6-start: 147, 51, 234;
+  --custom6-mid: 59, 130, 246;
+
+  /* Ultra Premium */
+  --aurora-purple: 168, 85, 247;
+  --aurora-pink: 236, 72, 153;
+  --aurora-blue: 59, 130, 246;
+
+  --galaxy-dark: 30, 41, 59;
+  --galaxy-indigo: 79, 70, 229;
+  --galaxy-pink: 236, 72, 153;
+}
+
+/* === Base Styles === */
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: rgb(var(--color-black));
+  min-height: 100vh;
+}
+
+/* Background image container */
+#background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.background-image.active {
+  opacity: 1;
+}
+
+/* Overlay */
+#background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--overlay-light-start), 0.85) 0%,
+    rgba(var(--overlay-light-end), 0.75) 100%
+  );
+  z-index: -1;
+}
+
+/* === Card Styles === */
+.card {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--color-black), 0.4) 0%,
+    rgba(var(--color-black), 0.25) 100%
+  );
+  color: rgb(var(--color-white));
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(var(--color-white), 0.2);
+  box-shadow: 0 8px 32px rgba(var(--color-black), 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1rem;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(var(--color-black), 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(var(--color-black), 0.5) 0%,
+    rgba(var(--color-black), 0.35) 100%
+  );
+}
+
+/* === Gradient Variants === */
+.card-blue {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--blue-start), 0.5) 0%,
+    rgba(var(--blue-mid), 0.4) 50%,
+    rgba(var(--color-black), 0.3) 100%
+  );
+  border: 1px solid rgba(var(--blue-start), 0.4);
+}
+.card-blue:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--blue-start), 0.6) 0%,
+    rgba(var(--blue-mid), 0.5) 50%,
+    rgba(var(--color-black), 0.4) 100%
+  );
+  box-shadow: 0 25px 50px rgba(var(--blue-start), 0.3);
+}
+
+.card-yellow {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--yellow-start), 0.5) 0%,
+    rgba(var(--yellow-mid), 0.4) 50%,
+    rgba(var(--color-black), 0.3) 100%
+  );
+  border: 1px solid rgba(var(--yellow-start), 0.4);
+}
+.card-yellow:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--yellow-start), 0.6) 0%,
+    rgba(var(--yellow-mid), 0.5) 50%,
+    rgba(var(--color-black), 0.4) 100%
+  );
+  box-shadow: 0 25px 50px rgba(var(--yellow-start), 0.3);
+}
+
+.card-green {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--green-start), 0.5) 0%,
+    rgba(var(--green-mid), 0.4) 50%,
+    rgba(var(--color-black), 0.3) 100%
+  );
+  border: 1px solid rgba(var(--green-start), 0.4);
+}
+.card-green:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--green-start), 0.6) 0%,
+    rgba(var(--green-mid), 0.5) 50%,
+    rgba(var(--color-black), 0.4) 100%
+  );
+  box-shadow: 0 25px 50px rgba(var(--green-start), 0.3);
+}
+
+.card-purple {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--purple-start), 0.5) 0%,
+    rgba(var(--purple-mid), 0.4) 50%,
+    rgba(var(--color-black), 0.3) 100%
+  );
+  border: 1px solid rgba(var(--purple-start), 0.4);
+}
+.card-purple:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--purple-start), 0.6) 0%,
+    rgba(var(--purple-mid), 0.5) 50%,
+    rgba(var(--color-black), 0.4) 100%
+  );
+  box-shadow: 0 25px 50px rgba(var(--purple-start), 0.3);
+}
+
+.card-red {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--red-start), 0.5) 0%,
+    rgba(var(--red-mid), 0.4) 50%,
+    rgba(var(--color-black), 0.3) 100%
+  );
+  border: 1px solid rgba(var(--red-start), 0.4);
+}
+.card-red:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--red-start), 0.6) 0%,
+    rgba(var(--red-mid), 0.5) 50%,
+    rgba(var(--color-black), 0.4) 100%
+  );
+  box-shadow: 0 25px 50px rgba(var(--red-start), 0.3);
+}
+
+/* === Custom Gradient Cards === */
+.card-custom-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--custom1-start), 0.5) 0%,
+    rgba(var(--custom1-mid), 0.4) 50%,
+    rgba(var(--color-black), 0.3) 100%
+  );
+  border: 1px solid rgba(var(--custom1-start), 0.4);
+}
+.card-custom-1:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--custom1-start), 0.6) 0%,
+    rgba(var(--custom1-mid), 0.5) 50%,
+    rgba(var(--color-black), 0.4) 100%
+  );
+  box-shadow: 0 25px 50px rgba(var(--custom1-start), 0.35);
+}
+
+/* (repeat same structure for custom2..custom6, aurora, galaxy etc.) */
+
+/* FAQ */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  color: var(--neutral-dark);
+}
+
+.faq-question svg {
+  transition: transform 0.3s ease-in-out;
+  stroke: var(--neutral-dark);
+}
+.faq-question .rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Gallery */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 1rem;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  border: 1px solid rgba(var(--color-black), 0.3);
+  box-shadow: 0 8px 32px rgba(var(--color-black), 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(var(--color-black), 0.3) 0%,
+    rgba(var(--color-black), 0.15) 100%
+  );
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.gallery-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(var(--color-black), 0.25);
+  border: 1px solid rgba(var(--color-black), 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(var(--color-black), 0.4) 0%,
+    rgba(var(--color-black), 0.25) 100%
+  );
+}
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(1) contrast(1.05);
+}
+.gallery-item:hover .gallery-image {
+  transform: scale(1.08);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Shimmer */
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.card-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(var(--color-white), 0.2), transparent);
+  transition: left 0.5s;
+}
+.card-shimmer:hover::before {
+  left: 100%;
+}
+
+/* Typography inside cards */
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {
+  color: rgb(var(--color-white));
+  text-shadow: 0 2px 4px rgba(var(--color-black), 0.3);
+}
+.card p, .card span, .card div {
+  color: rgba(var(--color-white), 0.95);
+  text-shadow: 0 1px 2px rgba(var(--color-black), 0.2);
+}
+
+/* Focus */
+.card:focus-visible {
+  outline: 2px solid rgba(var(--blue-start), 0.6);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  .gallery-item:hover {
+    transform: translateY(-3px) scale(1.01);
+  }
+}
