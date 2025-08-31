@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>University Website</title>
+
+  <link rel="stylesheet" href="nav.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header & Navbar -->
+  <header class="header">
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-container">
+        <a href="#" class="nav-logo" aria-label="University Logo">UNI LOGO</a>
+
+        <button id="hamburger-menu" class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list" role="menubar">
+            <li role="none"><a role="menuitem" href="#" class="nav-link">Home</a></li>
+            <li role="none"><a role="menuitem" href="#" class="nav-link">Admissions</a></li>
+            <li role="none"><a role="menuitem" href="#" class="nav-link">Courses</a></li>
+            <li role="none"><a role="menuitem" href="#" class="nav-link">About Us</a></li>
+            <li role="none"><a role="menuitem" href="#" class="nav-link">Contact</a></li>
+          </ul>
+
+          <div class="nav-cta-desktop">
+            <a href="#" class="btn btn-secondary user-btn" data-user="existing"><span>Existing User</span></a>
+            <a href="#" class="btn btn-primary user-btn" data-user="new"><span>New User</span></a>
+          </div>
+        </div>
+
+        <div class="mobile-menu-container" id="mobile-menu-container" aria-hidden="true">
+          <ul class="mobile-nav-list">
+            <li><a href="#" class="nav-link">Home</a></li>
+            <li><a href="#" class="nav-link">Admissions</a></li>
+            <li><a href="#" class="nav-link">Courses</a></li>
+            <li><a href="#" class="nav-link">About Us</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+          </ul>
+
+          <div class="nav-cta-mobile">
+            <a href="#" class="btn btn-secondary user-btn" data-user="existing"><span>Existing User</span></a>
+            <a href="#" class="btn btn-primary user-btn" data-user="new"><span>New User</span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Role Selection Modal -->
+  <div class="dialog-overlay" id="role-dialog" aria-hidden="true">
+    <div class="dialog-box" role="dialog" aria-modal="true" aria-labelledby="role-heading">
+      <button id="close-role-dialog" class="close-btn" aria-label="Close dialog">&times;</button>
+      <h2 id="role-heading">Choose Your Role</h2>
+      <div class="role-options">
+        <a href="#" class="btn role-btn" data-role="student"><span>Student</span></a>
+        <a href="#" class="btn role-btn" data-role="faculty"><span>Faculty</span></a>
+        <a href="#" class="btn role-btn" data-role="admin"><span>Admin</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Signup Dialog -->
+  <div class="dialog-overlay" id="google-dialog" aria-hidden="true">
+    <div class="dialog-box" role="dialog" aria-modal="true" aria-labelledby="google-heading">
+      <button id="close-google-dialog" class="close-btn" aria-label="Close dialog">&times;</button>
+      <h2 id="google-heading"></h2>
+      <a href="#" class="btn btn-primary google-btn"><span>Sign up / Login with Google</span></a>
+    </div>
+  </div>
+
+  <main style="padding:120px 2rem;">
+    <h1>Welcome to the University</h1>
+    <p>Scroll down to test the navbar background change, and click user buttons to see role selection and Google signup.</p>
+    <div style="height:2000px"></div>
+  </main>
+
+  <script src="nav.js"></script>
+</body>
+</html>
