@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College ERP - Parent Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #004080, #0073e6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #004080;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background: #004080;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .login-container button:hover {
+      background: #0073e6;
+    }
+    .extra-links {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .extra-links a {
+      color: #004080;
+      text-decoration: none;
+    }
+    .extra-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>👨‍👩‍👦 Parent Login</h2>
+    <form action="parent-dashboard.html" method="GET">
+      <input type="text" name="parent_id" placeholder="Parent ID" required>
+      <input type="text" name="student_roll" placeholder="Student Roll No" required>
+      <input type="password" name="password" placeholder="Password / OTP" required>
+      <button type="submit">Login</button>
+    </form>
+    <div class="extra-links">
+      <p><a href="#">Forgot Password?</a></p>
+      <p><a href="#">Contact Admin</a></p>
+    </div>
+  </div>
+
+</body>
+</html>
