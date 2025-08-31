@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College ERP - Parent Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f8fbff;
+            color: #222;
+        }
+
+        /* === Header === */
+        header {
+            background: #1e4c9a;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        /* === Hamburger Button === */
+        .hamburger {
+            position: absolute;
+            left: 15px;
+            top: 12px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            z-index: 1100;
+            /* 🔥 higher than sidebar */
+        }
+
+        /* === Sidebar Navigation === */
+        nav {
+            width: 230px;
+            background: #103d7c;
+            color: white;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: -250px;
+            /* hidden by default */
+            padding-top: 70px;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            /* lower than hamburger */
+        }
+
+        nav.active {
+            left: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            border-left: 4px solid transparent;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #1e4c9a;
+            border-left: 4px solid #ffd633;
+        }
+
+        /* === Main Content === */
+        main {
+            margin-left: 0;
+            padding: 25px;
+            transition: margin-left 0.3s ease;
+        }
+
+        nav.active~main {
+            margin-left: 250px;
+        }
+
+        /* === Card === */
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #1e4c9a;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 6px;
+        }
+
+        /* === Tables === */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #1e4c9a;
+            color: white;
+            font-weight: 600;
+        }
+
+        td {
+            background: #fafafa;
+        }
+
+        .status {
+            font-weight: bold;
+            color: #008000;
+        }
+
+        button {
+            padding: 10px 16px;
+            background: #1e4c9a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #163b75;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 6px;
+        }
+
+        /* === Mobile Fix === */
+        @media (max-width: 768px) {
+            nav {
+                width: 200px;
+            }
+
+            nav.active~main {
+                margin-left: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        College ERP - Parent Dashboard
+    </header>
+
+    <nav id="sidebar">
+        <a href="#student">👨‍🎓 Student Profile</a>
+        <a href="#academic">📘 Academic Performance</a>
+        <a href="#attendance">📅 Attendance</a>
+        <a href="#fees">💰 Fee Details</a>
+        <a href="#communication">📩 Communication</a>
+        <a href="#activities">🏆 Activities</a>
+        <a href="#hostel">🏠 Hostel & Transport</a>
+        <a href="#reports">📂 Reports</a>
+    </nav>
+
+    <main>
+        <section id="student" class="card">
+            <h2>👨‍🎓 Student Profile</h2>
+            <p><strong>Name:</strong> Rahul Sharma</p>
+            <p><strong>Roll No:</strong> 2023CSE045</p>
+            <p><strong>Course:</strong> B.Tech CSE, 3rd Year</p>
+            <p><strong>Guardian:</strong> Mr. Rajesh Sharma</p>
+        </section>
+
+        <section id="academic" class="card">
+            <h2>📘 Academic Performance</h2>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Mid-Term</th>
+                    <th>Final</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td>Data Structures</td>
+                    <td>80</td>
+                    <td>85</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>DBMS</td>
+                    <td>75</td>
+                    <td>78</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td>Operating Systems</td>
+                    <td>82</td>
+                    <td>88</td>
+                    <td>A</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="attendance" class="card">
+            <h2>📅 Attendance</h2>
+            <p>Overall Attendance: <span class="status">92%</span></p>
+        </section>
+
+        <section id="fees" class="card">
+            <h2>💰 Fee Details</h2>
+            <p><strong>Total Fees:</strong> ₹1,20,000</p>
+            <p><strong>Paid:</strong> ₹90,000</p>
+            <p><strong>Pending:</strong> ₹30,000</p>
+            <button>Pay Now</button>
+        </section>
+
+        <section id="communication" class="card">
+            <h2>📩 Communication</h2>
+            <p>Latest Notice: <strong>Parent-Teacher Meeting scheduled for 10th Sept 2025</strong></p>
+        </section>
+
+        <section id="activities" class="card">
+            <h2>🏆 Activities & Achievements</h2>
+            <ul>
+                <li>Won 1st Prize in Coding Hackathon</li>
+                <li>Member of Robotics Club</li>
+            </ul>
+        </section>
+
+        <section id="hostel" class="card">
+            <h2>🏠 Hostel & Transport</h2>
+            <p><strong>Hostel:</strong> Block C, Room 204</p>
+            <p><strong>Transport:</strong> Route 5 - Bus No. MH12AB1234</p>
+        </section>
+
+        <section id="reports" class="card">
+            <h2>📂 Reports & Downloads</h2>
+            <button>Download Attendance Report</button>
+            <button>Download Marksheet</button>
+            <button>Download Fee Receipt</button>
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("sidebar").classList.toggle("active");
+        }
+    </script>
+
+</body>
+
+</html>
